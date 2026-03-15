@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Hero = ({ cores }) => {
-  // Mantendo a sua frase estratégica
   const mensagemWpp = encodeURIComponent("Olá, Dr. Ângelo. Vim pelo site e gostaria de solicitar uma consultoria estratégica.");
 
   return (
@@ -12,27 +11,28 @@ const Hero = ({ cores }) => {
         style={{ backgroundColor: '#050C16' }} 
       >
         
-        {/* 1ª CAMADA: Cenário de fundo (Prédios/Textura) */}
+        {/* 1ª CAMADA: Cenário de fundo */}
         <div className="absolute inset-0 z-0 bg-[url('/back-01.png')] bg-cover bg-center bg-no-repeat opacity-30 md:opacity-100"></div>
 
-        {/* 2ª CAMADA: O Advogado - USANDO COVER PARA PREENCHER O FUNDO NO MOBILE */}
+        {/* 2ª CAMADA: O Advogado - AJUSTADO PARA FICAR MAIS À ESQUERDA NO MOBILE */}
         <div className="absolute inset-0 z-10 
-          /* Mobile e Tablet: Estica para cobrir todo o fundo, centralizado horizontalmente */
+          /* Mobile e Tablet: Puxado para a esquerda (40%) e centralizado verticalmente */
           bg-[url('/back02.png')] bg-no-repeat 
-          bg-[length:cover] bg-[position:center_top]
-          /* Desktop: Volta para o tamanho original e alinhado à direita */
+          bg-[length:180%_auto] bg-[position:40%_top]
+          sm:bg-[length:140%_auto] sm:bg-[position:45%_top]
+          /* Desktop: Volta ao padrão original */
           md:bg-[length:contain] md:bg-right-bottom md:mr-[5%]
           pointer-events-none"
         ></div>
 
-        {/* GRADIENTE DE ESCURECIMENTO (Overlay) - Para garantir a leitura do texto sobre o corpo da imagem no mobile */}
-        <div className="absolute inset-0 z-15 bg-gradient-to-t from-[#050C16] via-black/30 to-black/10 md:bg-none"></div>
+        {/* GRADIENTE DE ESCURECIMENTO: Reforçado para garantir leitura no mobile */}
+        <div className="absolute inset-0 z-15 bg-gradient-to-t from-[#050C16] via-[#050C16]/60 to-transparent md:bg-none"></div>
 
-        {/* CONTEÚDO: Sobreposto à imagem */}
+        {/* CONTEÚDO */}
         <div className="w-full max-w-6xl mx-auto px-6 z-20 relative pt-20 md:pt-0">
           <div className="max-w-2xl text-center md:text-left mx-auto md:mx-0">
             
-            <h1 className="font-serif-lux text-[32px] sm:text-[42px] md:text-6xl text-white leading-[1.2] mb-4 md:mb-6 drop-shadow-2xl font-bold uppercase tracking-tight">
+            <h1 className="font-serif-lux text-[32px] sm:text-[42px] md:text-6xl text-white leading-[1.1] mb-4 md:mb-6 drop-shadow-2xl font-bold uppercase tracking-tight">
               Segurança jurídica <br className="hidden md:block"/> construída com estratégia
             </h1>
             
