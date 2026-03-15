@@ -1,0 +1,139 @@
+/* Importação definitiva: Cinzel e Cormorant Garamond (Channe style) */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css');
+
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Define a fonte "Channe" como padrão do site inteiro */
+    font-family: 'Cormorant Garamond', serif;
+    color: #1C3957;
+  }
+}
+
+/* ========================================= */
+/* KEYFRAMES DE ANIMAÇÃO                     */
+/* ========================================= */
+@keyframes pulse-shadow-blue {
+  0% { box-shadow: 0 0 0 0 rgba(28, 57, 87, 0.5), 0 10px 20px rgba(0,0,0,0.5); }
+  70% { box-shadow: 0 0 0 15px rgba(28, 57, 87, 0), 0 10px 20px rgba(0,0,0,0.5); }
+  100% { box-shadow: 0 0 0 0 rgba(28, 57, 87, 0), 0 10px 20px rgba(0,0,0,0.5); }
+}
+
+@keyframes sweepContinuous {
+  0% { transform: translateX(-250%) skewX(-30deg); }
+  30%, 100% { transform: translateX(250%) skewX(-30deg); }
+}
+
+@keyframes pulse-blue-premium {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(28, 57, 87, 0.6); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(28, 57, 87, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(28, 57, 87, 0); }
+}
+
+/* ========================================= */
+/* CLASSES CUSTOMIZADAS DO PROJETO           */
+/* ========================================= */
+@layer utilities {
+  /* Forçamos as duas fontes da sua imagem para evitar intrusos */
+  .font-serif-lux { 
+    font-family: 'Cinzel', serif !important; 
+    letter-spacing: 0.05em;
+  }
+  
+  .font-sans-lux { 
+    font-family: 'Cormorant Garamond', serif !important; 
+    font-weight: 300; /* Leveza da Channe */
+  }
+
+  /* Animação do botão do WhatsApp (Azul Profundo) */
+  .animate-wpp-ouro {
+    animation: pulse-blue-premium 2s infinite ease-in-out;
+  }
+
+  /* Gradiente baseado na nova paleta Cinza -> Azul */
+  .bg-ouro-premium {
+    background: linear-gradient(135deg, #8D9095 0%, #1C3957 45%, #102336 100%);
+    border: 1px solid #8D9095;
+  }
+
+  .bg-ouro-envelhecido {
+    background: linear-gradient(135deg, #4A4B4D 0%, #8D9095 35%, #D1D2D4 50%, #8D9095 65%, #4A4B4D 100%);
+    background-size: 200% 200%;
+    border: 1px solid #D1D2D4;
+    animation: pulse-shadow-blue 2s infinite ease-in-out; 
+  }
+
+  .divisor-premium {
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(to right, transparent, #8D9095 50%, transparent);
+    box-shadow: 0px 0px 15px rgba(141, 144, 149, 0.8);
+    position: relative;
+    z-index: 50;
+  }
+
+  .btn-premium-glass {
+    position: relative;
+    padding: 10px 20px;
+    color: #8D9095;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 9px;
+    font-weight: bold;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden; 
+    display: inline-block;
+    background: rgba(28, 57, 87, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(141, 144, 149, 0.3);
+    font-family: 'Cinzel', serif; /* Botões ficam melhores em Cinzel */
+  }
+
+  @media (min-width: 768px) {
+    .btn-premium-glass { 
+      padding: 12px 28px; 
+      font-size: 10px; 
+      letter-spacing: 0.25em; 
+    }
+  }
+
+  .btn-shine {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
+    animation: sweepContinuous 5s infinite ease-in-out; 
+  }
+}
+
+/* Modificadores globais para o Swiper */
+.sobre-swiper .swiper-button-next, 
+.sobre-swiper .swiper-button-prev {
+  color: #8D9095 !important;
+  width: 30px;
+  height: 30px;
+  background: rgba(28, 57, 87, 0.4);
+  backdrop-filter: blur(4px);
+  border-radius: 50%;
+  transition: all 0.4s ease;
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  .sobre-swiper .swiper-button-next, 
+  .sobre-swiper .swiper-button-prev { 
+    opacity: 0; 
+    width: 40px; 
+    height: 40px; 
+  }
+  .group:hover .swiper-button-next, 
+  .group:hover .swiper-button-prev { opacity: 1; }
+}
+
+.sobre-swiper .swiper-pagination-bullet-active {
+  background: #1C3957 !important;
+}
