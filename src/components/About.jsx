@@ -84,9 +84,9 @@ const About = ({ cores }) => {
                 autoplay={{ delay: 6000, disableOnInteraction: false }}
                 className="w-full h-[350px] md:h-[500px] relative"
               >
-                <SwiperSlide><img src="/sobre03.jpg" className="w-full h-full object-cover" alt="Ângelo Paiva" /></SwiperSlide>
-                <SwiperSlide><img src="/sobre01.jpg" className="w-full h-full object-cover" alt="Ângelo Paiva" /></SwiperSlide>
-                <SwiperSlide><img src="/sobre02.jpg" className="w-full h-full object-cover" alt="Ângelo Paiva" /></SwiperSlide>
+                <SwiperSlide><img src="./sobre03.jpg" className="w-full h-full object-cover" alt="Ângelo Paiva" /></SwiperSlide>
+                <SwiperSlide><img src="./sobre01.jpg" className="w-full h-full object-cover" alt="Ângelo Paiva" /></SwiperSlide>
+                <SwiperSlide><img src="./sobre02.jpg" className="w-full h-full object-cover" alt="Ângelo Paiva" /></SwiperSlide>
 
                 <button 
                   type="button" 
