@@ -14,16 +14,16 @@ const Hero = ({ cores }) => {
         {/* 1ª CAMADA: Cenário de fundo */}
         <div className="absolute inset-0 z-0 bg-[url('/back-01.png')] bg-cover bg-center bg-no-repeat opacity-30 md:opacity-100"></div>
 
-        {/* 2ª CAMADA: O Advogado - ZOOM FORÇADO PARA ESTICAR TOTALMENTE NO MOBILE */}
+        {/* 2ª CAMADA: O Advogado - ZOOM LATERAL REFORÇADO (180%) */}
         <div className="absolute inset-0 z-10 
-          /* Mobile: Força a imagem a esticar 100% na largura e altura */
+          /* Mobile: Estica a largura para 180% para garantir preenchimento total */
           bg-[url('/back02.png')] bg-no-repeat 
-          bg-[length:100%_100%] bg-[position:center_bottom]
+          bg-[length:180%_100%] bg-[position:center_bottom]
           
-          /* Tablet: Mantém o preenchimento mas com ajuste de corte (cover) */
-          sm:bg-[length:cover] sm:bg-[position:center_top]
+          /* Tablet: Zoom um pouco menor para enquadrar melhor */
+          sm:bg-[length:150%_100%] sm:bg-[position:center_bottom]
           
-          /* Desktop: Volta ao padrão original para não distorcer */
+          /* Desktop: Volta ao padrão original contido */
           md:bg-[length:contain] md:bg-right-bottom md:mr-[5%]
           pointer-events-none"
         ></div>
@@ -48,7 +48,7 @@ const Hero = ({ cores }) => {
                 href={`https://wa.me/5584998339633?text=${mensagemWpp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-serif-lux font-bold uppercase tracking-[0.2em] transition-all duration-300 rounded-lg group shadow-[0_10px_30_rgba(0,0,0,0.5)]"
+                className="relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-serif-lux font-bold uppercase tracking-[0.2em] transition-all duration-300 rounded-lg group shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
                 style={{ 
                   backgroundImage: 'linear-gradient(135deg, #a1aab3 0%, #ffffff 50%, #a1aab3 100%)',
                   color: '#000000',
