@@ -1,48 +1,51 @@
 import React from 'react';
 
 const Hero = ({ cores }) => {
+  // Mantendo a sua frase estratégica
   const mensagemWpp = encodeURIComponent("Olá, Dr. Ângelo. Vim pelo site e gostaria de solicitar uma consultoria estratégica.");
 
   return (
     <>
       <header 
         id="home" 
-        className="min-h-[100svh] w-full flex flex-col md:flex-row md:items-center relative overflow-hidden pt-20 md:pt-0"
+        className="h-[100svh] w-full flex items-center relative overflow-hidden"
         style={{ backgroundColor: '#050C16' }} 
       >
         
-        {/* FUNDO (Cenário/Prédios) */}
-        <div className="absolute inset-0 z-0 bg-[url('/back-01.png')] bg-cover bg-center bg-no-repeat opacity-20 md:opacity-100"></div>
+        {/* 1ª CAMADA: Cenário de fundo (Prédios/Textura) */}
+        <div className="absolute inset-0 z-0 bg-[url('/back-01.png')] bg-cover bg-center bg-no-repeat opacity-30 md:opacity-100"></div>
 
-        {/* CONTAINER PRINCIPAL RESPONSIVO */}
-        <div className="w-full max-w-6xl mx-auto px-6 z-20 flex flex-col items-center md:flex-row md:justify-between relative h-full">
-          
-          {/* IMAGEM DO ADVOGADO: PRIMEIRO NO MOBILE, DIREITA NO DESKTOP */}
-          <div className="w-full md:absolute md:inset-0 md:z-10 flex justify-center md:justify-end items-end pointer-events-none order-1 md:order-2">
-            <img 
-              src="/back02.png" 
-              alt="Ângelo Paiva" 
-              className="w-auto h-[35vh] sm:h-[45vh] md:h-[85vh] lg:h-[95vh] object-contain object-bottom md:mr-[5%]"
-            />
-          </div>
+        {/* 2ª CAMADA: O Advogado - USANDO COVER PARA PREENCHER O FUNDO NO MOBILE */}
+        <div className="absolute inset-0 z-10 
+          /* Mobile e Tablet: Estica para cobrir todo o fundo, centralizado horizontalmente */
+          bg-[url('/back02.png')] bg-no-repeat 
+          bg-[length:cover] bg-[position:center_top]
+          /* Desktop: Volta para o tamanho original e alinhado à direita */
+          md:bg-[length:contain] md:bg-right-bottom md:mr-[5%]
+          pointer-events-none"
+        ></div>
 
-          {/* TEXTO E BOTÃO: ABAIXO DA IMAGEM NO MOBILE */}
-          <div className="w-full md:max-w-2xl text-center md:text-left mt-6 md:mt-24 order-2 md:order-1 relative z-30 pb-12 md:pb-0">
+        {/* GRADIENTE DE ESCURECIMENTO (Overlay) - Para garantir a leitura do texto sobre o corpo da imagem no mobile */}
+        <div className="absolute inset-0 z-15 bg-gradient-to-t from-[#050C16] via-black/30 to-black/10 md:bg-none"></div>
+
+        {/* CONTEÚDO: Sobreposto à imagem */}
+        <div className="w-full max-w-6xl mx-auto px-6 z-20 relative pt-20 md:pt-0">
+          <div className="max-w-2xl text-center md:text-left mx-auto md:mx-0">
             
-            <h1 className="font-serif-lux text-[28px] sm:text-[36px] md:text-6xl text-white leading-[1.2] mb-4 md:mb-6 font-bold uppercase tracking-tight">
+            <h1 className="font-serif-lux text-[32px] sm:text-[42px] md:text-6xl text-white leading-[1.2] mb-4 md:mb-6 drop-shadow-2xl font-bold uppercase tracking-tight">
               Segurança jurídica <br className="hidden md:block"/> construída com estratégia
             </h1>
             
-            <p className="font-sans-lux text-white text-[14px] sm:text-[16px] md:text-lg leading-relaxed mb-8 md:mb-10 max-w-sm md:max-w-lg mx-auto md:mx-0 font-light opacity-90">
+            <p className="font-sans-lux text-white text-[15px] sm:text-[17px] md:text-lg leading-relaxed mb-8 md:mb-10 max-w-sm md:max-w-lg mx-auto md:mx-0 font-light drop-shadow-md">
               Orientação estratégica para empresas e profissionais que precisam agir com segurança e previsibilidade.
             </p>
             
-            <div className="inline-block">
+            <div className="inline-block relative z-30">
               <a 
                 href={`https://wa.me/5584998339633?text=${mensagemWpp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-serif-lux font-bold uppercase tracking-[0.2em] transition-all duration-300 rounded-lg group shadow-2xl"
+                className="relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-serif-lux font-bold uppercase tracking-[0.2em] transition-all duration-300 rounded-lg group shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
                 style={{ 
                   backgroundImage: 'linear-gradient(135deg, #a1aab3 0%, #ffffff 50%, #a1aab3 100%)',
                   color: '#000000',
@@ -56,9 +59,6 @@ const Hero = ({ cores }) => {
 
           </div>
         </div>
-
-        {/* GRADIENTE DE FINALIZAÇÃO NO MOBILE */}
-        <div className="absolute inset-0 z-15 bg-gradient-to-t from-[#050C16] via-transparent to-transparent md:hidden"></div>
       </header>
       
       <style jsx="true">{`
